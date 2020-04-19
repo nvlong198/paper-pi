@@ -3,11 +3,11 @@ const winston = require('winston')
 const { createCanvas, registerFont, Image } = require('canvas')
 const path = require('path')
 const shapely = require('shapely-canvas')
-const Forecast = require('./views/Forecast')
+// const Forecast = require('./views/Forecast')
 const Battery = require('./views/Battery')
 const Headlines = require('./views/Headlines')
 const Today = require('./views/Today')
-const Wotd = require('./views/Wotd')
+// const Wotd = require('./views/Wotd')
 // Draw bitmaps by hand:
 //http://magazine.art21.org/2011/09/13/how-to-create-a-bitmap-image-file-by-hand-without-stencils
 module.exports = class Draw {
@@ -58,9 +58,9 @@ module.exports = class Draw {
 
   async _drawImage() {
     const today = await new Today({ x: 0, y: 0, ...this }).draw().catch(err => winston.log('error', err))
-    const headlines = await new Headlines({ x: 0, y: today.height, ...this }).draw().catch(err => winston.log('error', err))
-    await new Wotd({ x: 0, y: headlines.height, ...this }).draw().catch(err => winston.log('error', err))
-    await new Forecast({ x: 0, y: 421, ...this }).draw().catch(err => winston.log('error', err))
+    const headlines = await new Headlines({ x: 0, y: today.height, ...this }).draw().catch(err => console.log('error', err))
+    // await new Wotd({ x: 0, y: headlines.height, ...this }).draw().catch(err => winston.log('error', err))
+    // await new Forecast({ x: 0, y: 421, ...this }).draw().catch(err => winston.log('error', err))
   }
 
   async _drawLowPowerImage() {

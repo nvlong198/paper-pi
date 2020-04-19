@@ -15,9 +15,15 @@ const requestHandler = async (req, response) => {
   })
 }
 
+const requestTest = async (re, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end("Hello World")
+}
+
 const server = http.createServer(requestHandler)
 
 server.listen(port, err => {
+  console.log(`Server running at http://localhost:${port}/`);
   if (err) {
     return console.log('Something went wrong', err)
   }

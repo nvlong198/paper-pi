@@ -4,7 +4,7 @@ const config = require('../config')
 
 module.exports = class News {
   constructor() {
-    this.apiKey = process.env.news_key
+    this.apiKey = '5dd907cc83b54deda5154e6ebb93a5bf' // process.env.news_key
   }
 
   getHeadlines() {
